@@ -292,7 +292,7 @@ pred = add_layer(fc_2,[1024,num_classes],[num_classes],activation_fn=tf.nn.softm
 # In[28]:
 
 
-#cross_entropy = tf.reduce_mean(-tf.reduce_sum(pred*tf.log(tf.clip_by_value(ys,1e-10,1.0)),reduction_indices=[1]))
+#cross_entropy = tf.reduce_mean(-tf.reduce_sum(ys*tf.log(tf.clip_by_value(pred,1e-10,1.0)),reduction_indices=[1]))
 cross_entropy = tf.reduce_mean(tf.reduce_sum(tf.square(pred-ys),axis=1))
 
 # In[29]:
